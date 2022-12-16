@@ -1,0 +1,28 @@
+name: BoostSecurity Snyk
+env:
+  SNYK_TOKEN: 130a3a8d-cf45-429d-9070-7fa14f3cc8ef
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+    types:
+      - opened
+      - synchronize
+jobs:
+  scanner:
+    name: Snyk
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Snyk
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_TOKEN }}
+          registry_module: boostsecurityio/snyk-test
