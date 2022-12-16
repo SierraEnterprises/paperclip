@@ -25,3 +25,4 @@ jobs:
           api_token: ${{ secrets.BOOST_API_TOKEN }}
           registry_module: boostsecurityio/snyk-test
           SNYK_TOKEN: 130a3a8d-cf45-429d-9070-7fa14f3cc8ef
+          additional_args: --log-level DEBUG --log-verbose
