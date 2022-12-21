@@ -19,10 +19,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Build
+        uses: ruby/setup-ruby@v1
+        with:
+            ruby-version: '3.0' # Not needed with a .ruby-version file
+            bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        run: bundle install
       - name: Bundler Audit
         uses: boostsecurityio/boostsec-scanner-github@v4
-        env:
-          GEMFILE_LOCK: 
         with:
           api_token: ${{ secrets.BOOST_API_TOKEN }}
           registry_module: boostsecurityio/bundler-audit
