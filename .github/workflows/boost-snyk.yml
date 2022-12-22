@@ -35,3 +35,5 @@ jobs:
           api_token: ${{ secrets.BOOST_API_TOKEN }}
           registry_module: boostsecurityio/snyk-test
           additional_args: --log-level DEBUG --log-verbose
+        env:
+          SNYK_TOKEN: ${{ env.SNYK_TOKEN  }}
