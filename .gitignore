@@ -15,5 +15,4 @@ capybara*.html
 .rbx
 
 *SPIKE*
-*emfile.lock
 tags
