@@ -21,16 +21,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - uses: snyk/actions/setup@master
-      - run: |
-          snyk test --json --all-projects || true
-
       - name: Snyk
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_token: ${{ secrets.BOOST_API_TOKEN }}
           registry_module: boostsecurityio/snyk-test
-          additional_args: --log-level DEBUG --log-verbose
+          additional_args: --log-level DEBUG --log-verbose --require-full-repo
         env:
           SNYK_TOKEN: ${{ env.SNYK_TOKEN }}

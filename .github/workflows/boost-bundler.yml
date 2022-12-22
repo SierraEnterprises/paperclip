@@ -19,14 +19,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - run: |
-          sudo gem install bundler-audit
-          bundler-audit check --format json
-
       - name: Bundler Audit
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_token: ${{ secrets.BOOST_API_TOKEN }}
           registry_module: boostsecurityio/bundler-audit
-          additional_args: --log-level DEBUG --log-verbose
+          additional_args: --log-level DEBUG --log-verbose --require-full-repo
