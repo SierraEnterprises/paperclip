@@ -3,7 +3,7 @@ Paperclip
 
 # Deprecated
 
-**[Paperclip is deprecated]**.
+**[Paperclip is deprecated]**!
 
 For new projects, we recommend Rails' own [ActiveStorage].
 
