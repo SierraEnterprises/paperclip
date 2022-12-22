@@ -19,11 +19,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Create Gemfile
-        run: |
-          echo "source 'https://rubygems.org'" > Gemfile
-          echo "gem 'paperclip', git: '$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git'" >> Gemfile
-          rm .gitignore
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0' # Not needed with a .ruby-version file
