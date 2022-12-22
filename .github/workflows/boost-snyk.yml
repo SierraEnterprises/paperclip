@@ -22,13 +22,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/ruby@master
-        with:
-          args: --sarif-file-output=snyk.sarif
-
+      - uses: snyk/actions/setup@master
       - run: |
-          cat snyk.sarif
+          snyk test --json --all-projects || true
 
       - name: Snyk
         uses: boostsecurityio/boostsec-scanner-github@v4
