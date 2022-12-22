@@ -25,8 +25,7 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/ruby@master
         with:
-          with:
-            args: --sarif-file-output=snyk.sarif
+          args: --sarif-file-output=snyk.sarif
 
       - run: |
           cat snyk.sarif
